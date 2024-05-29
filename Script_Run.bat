@@ -10,10 +10,8 @@ IF "%1"== "Y" GOTO :removedef
 :--------------------------------------
 ::Menu Section
 cls
-echo Select an option:
-echo.
-echo Press Y.
-set /P c=Select one of the options to continue:
+echo Press Y for update.
+set /P c=Update is comming:
 if /I "%c%" EQU "Y" goto :removedef
 :--------------------------------------
 
