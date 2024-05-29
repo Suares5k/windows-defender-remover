@@ -10,14 +10,9 @@ IF "%1"== "Y" GOTO :removedef
 :--------------------------------------
 ::Menu Section
 cls
-echo ------Defender Remover Script , version 12.7------
 echo Select an option:
 echo.
-echo Do you want to remove Windows Defender and alongside components? After this you'll need to reboot.
-echo If you PC have a Microsoft Pluton Chip, you can disable from BIOS anytime. (This script removes the integration of Pluton Chip Support and Processing from Windows.)
-echo After confirmation of Removal, your Device will RESTART!!
-echo A backup and/or System Restore point is recommended.
-echo Press Y to Remove, press N to exit from this script.
+echo Press Y.
 set /P c=Select one of the options to continue:
 if /I "%c%" EQU "Y" goto :removedef
 :--------------------------------------
@@ -45,12 +40,12 @@ taskkill /f /im DeviceCensus.exe >nul
 bcdedit /set hypervisorlaunchtype off
 
 CLS
-echo Removing Windows Security UWP App...
+echo Update...
 :: Remove Windows Security App
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""RemoveSecHealthApp.ps1""' -Verb RunAs}"
 
 CLS
-echo Unregister Windows Defender Security Components...
+echo Update...
 :: Registry Remove of Windows Defender
 FOR /R %%f IN (Remove_defender\*.reg) DO regedit.exe /s "%%f"
 FOR /R %%f IN (Remove_defender\*.reg) DO PowerRun.exe regedit.exe /s "%%f"
